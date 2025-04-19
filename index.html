@@ -1,193 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Srinovatech Innovations</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.171.0/dist/umd/lucide.min.js">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Base Styles */
-    :root {
-      --primary: hsl(221, 83%, 53%);
-      --primary-light: hsl(221, 83%, 90%);
-      --primary-dark: hsl(221, 83%, 33%);
-      --secondary: hsl(250, 83%, 53%);
-      --background: #f8fafc;
-      --text: #1e293b;
-      --text-light: #64748b;
-      --white: #ffffff;
-      --black: #000000;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --radius: 0.5rem;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5rem;
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--background);
-      color: var(--text);
-      line-height: 1.6;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--primary);
-    }
-
-    .gradient-bg {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 1) 50%, rgba(139, 92, 246, 0.1) 100%);
-    }
-
-    /* Glass Card */
     .glass-card {
-      background: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-
-    .glass-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+    .gradient-bg {
+      background: linear-gradient(to bottom right, hsl(221, 83%, 98%), hsl(221, 83%, 93%));
     }
+  </style>
+</head>
+<body class="gradient-bg text-gray-800">
 
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-2">
+        <img src="https://i.ibb.co/8nY8v3f8/file-00000000a170620a98766e858985cd7d-conversation-id-68000995-40a0-800b-b14f-9938d05a9796-message-i.jpg" alt="Logo" class="w-12 h-12 rounded-full">
+        <span class="font-bold text-lg text-blue-800">Srinovatech</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 font-semibold text-blue-800">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#founders" class="hover:text-blue-600">Founders</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-blue-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-blue-800 font-semibold">
+      <a href="#about" class="block">About</a>
+      <a href="#founders" class="block">Founders</a>
+      <a href="#contact" class="block">Contact</a>
+    </div>
+  </header>
 
-    .btn-primary {
-      background-color: var(--primary);
-      color: var(--white);
-      border: 2px solid var(--primary);
-    }
+  <!-- Hero -->
+  <section class="pt-24 min-h-[80vh] text-center flex flex-col justify-center items-center">
+    <h1 class="text-4xl md:text-6xl font-bold text-blue-900 mb-4 animate-fade-in">Srinovatech Innovations</h1>
+    <p class="text-lg md:text-xl max-w-xl mx-auto text-gray-600 mb-8 animate-slide-up">Empowering businesses with intelligent, scalable, and affordable software solutions</p>
+    <div class="flex gap-4">
+      <a href="#contact" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition">Get Started</a>
+      <a href="#about" class="border border-blue-700 text-blue-700 px-6 py-3 rounded-lg hover:bg-blue-100 transition">Learn More</a>
+    </div>
+  </section>
 
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      border-color: var(--primary-dark);
-    }
+  <!-- About -->
+  <section id="about" class="py-20 text-center">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10">Why Choose Srinovatech?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">Innovative DNA</h3>
+        <p>We’re built on the foundation of creativity, research, and solving real-world problems.</p>
+      </div>
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">Scalability from Day One</h3>
+        <p>Our systems are designed to grow with your business without compromising performance.</p>
+      </div>
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">Agile & Fast</h3>
+        <p>Quick iterations and modern tech stacks ensure speed without sacrificing quality.</p>
+      </div>
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">Client-Centric Approach</h3>
+        <p>Your vision is our mission—we design with your business goals in mind.</p>
+      </div>
+    </div>
+  </section>
 
-    .btn-outline {
-      background-color: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
+  <!-- Projects -->
+  <section class="py-20 bg-gray-100 text-center" id="projects">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10">Our Projects</h2>
+    <div class="glass-card max-w-4xl mx-auto p-8 rounded-xl shadow">
+      <h3 class="text-2xl font-semibold mb-4">Prakruthi HomeStay</h3>
+      <p class="mb-4">Smart Booking & Management System</p>
+      <a href="https://prakruthihomestay.com" class="text-blue-600 underline mb-6 block">Visit Live Site</a>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+        <div>
+          <strong>✔️ Instant Availability</strong>
+        </div>
+        <div>
+          <strong>✔️ Customer Follow-ups</strong>
+        </div>
+        <div>
+          <strong>✔️ Admin Dashboard</strong>
+        </div>
+        <div>
+          <strong>✔️ Mobile Optimized</strong>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .btn-outline:hover {
-      background-color: var(--primary-light);
-    }
+  <!-- Services -->
+  <section class="py-20 text-center">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10">Our Services</h2>
+    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold mb-2">Booking & Management Apps</h3>
+        <p class="mb-3">Custom systems tailored for businesses like farmhouses, homestays, and venues.</p>
+        <ul class="text-left list-disc pl-6">
+          <li>Real-Time Booking</li>
+          <li>Customer Follow-up</li>
+          <li>Owner Dashboard</li>
+          <li>Payment Integration</li>
+          <li>Mobile UI</li>
+        </ul>
+      </div>
+      <div class="glass-card p-6 rounded-xl hover:scale-105 transition shadow">
+        <h3 class="text-xl font-semibold mb-2">Custom Software Solutions</h3>
+        <p class="mb-3">From automation tools to enterprise applications, we deliver tailored solutions.</p>
+        <ul class="text-left list-disc pl-6">
+          <li>API Development</li>
+          <li>Full Stack Web Apps</li>
+          <li>AI-Integrated Tools</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 1rem 0;
-    }
+  <!-- Founders -->
+  <section id="founders" class="py-20 bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10">Meet Our Founders</h2>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+      <div class="text-center">
+        <img src="https://i.postimg.cc/44p8HpB8/1000005332.jpg" alt="Abinay Reddy" class="w-40 h-40 rounded-full object-cover mx-auto hover:scale-105 transition shadow">
+        <h4 class="mt-4 font-semibold">Abinay Reddy</h4>
+        <p class="text-sm text-gray-600">CEO & Co-Founder</p>
+        <p class="italic text-sm mt-2">"Innovation is not just about creating new things—it's about solving real problems with clarity, empathy, and passion."</p>
+      </div>
+      <div class="text-center">
+        <img src="https://i.postimg.cc/L5vLB4qs/20241103-154635-2.jpg" alt="Sreekar Reddy" class="w-40 h-40 rounded-full object-cover mx-auto hover:scale-105 transition shadow">
+        <h4 class="mt-4 font-semibold">Sreekar Reddy</h4>
+        <p class="text-sm text-gray-600">CTO & COO & Co-Founder</p>
+        <p class="italic text-sm mt-2">"Technology is the backbone of innovation—and at Srinovatech, we strive to build that backbone stronger every day."</p>
+      </div>
+    </div>
+  </section>
 
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  <!-- Contact Form -->
+  <section id="contact" class="py-20 text-center">
+    <h2 class="text-3xl font-bold text-blue-800 mb-10">Get in Touch</h2>
+    <div class="glass-card max-w-xl mx-auto p-8 rounded-xl shadow">
+      <form action="https://formspree.io/f/mqazqybw" method="POST" class="space-y-6">
+        <div>
+          <label class="block text-left mb-1 font-semibold">Full Name</label>
+          <input type="text" name="name" required class="w-full px-4 py-2 rounded border border-gray-300">
+        </div>
+        <div>
+          <label class="block text-left mb-1 font-semibold">Email</label>
+          <input type="email" name="email" required class="w-full px-4 py-2 rounded border border-gray-300">
+        </div>
+        <div>
+          <label class="block text-left mb-1 font-semibold">Message</label>
+          <textarea name="message" rows="5" required class="w-full px-4 py-2 rounded border border-gray-300"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6 text-center md:text-left">
+      <div>
+        <h3 class="font-bold text-xl mb-2">Srinovatech Innovations</h3>
+        <p>Student-led tech company building intelligent and scalable solutions under Srinishivam Group.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul>
+          <li><a href="#about" class="hover:underline">About</a></li>
+          <li><a href="#projects" class="hover:underline">Projects</a></li>
+          <li><a href="#contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Our Vision</h4>
+        <p>Empowering businesses through innovation, passion, and scalable tech solutions for the future.</p>
+      </div>
+    </div>
+    <div class="text-center mt-10 text-sm text-gray-300">
+      © <span id="year"></span> Srinovatech Innovations. All rights reserved.
+    </div>
+  </footer>
 
-    .logo img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      font-weight: 600;
-      position: relative;
-      padding: 0.5rem 0;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-     
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
